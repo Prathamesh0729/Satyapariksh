@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6b3a7"/><stop offset="1" stop-color="#77776e"/></linearGradient>
+  <linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#77766c"/><stop offset="1" stop-color="#4d4c45"/></linearGradient>
+</defs>
+<rect width="900" height="620" fill="url(#sky)"/>
+<path d="M0 250L120 190 245 245 350 155 470 235 620 145 760 230 900 170V620H0Z" fill="#686961" opacity=".8"/>
+<path d="M0 390L900 325V620H0Z" fill="url(#road)"/>
+<g fill="#353631"><circle cx="100" cy="325" r="42"/><path d="M57 365h86l22 170H35Z"/><circle cx="240" cy="345" r="36"/><path d="M202 377h76l18 155h-104Z"/><circle cx="670" cy="330" r="44"/><path d="M625 370h91l27 172H600Z"/><circle cx="800" cy="345" r="35"/><path d="M765 380h70l25 150h-92Z"/></g>
+<g fill="#ddd8c9"><circle cx="450" cy="275" r="46"/><path d="M400 320h102l24 240H370Z"/></g>
+<g transform="translate(285 205) rotate(-4)"><path d="M0 0h330v105H0z" fill="#e8e3d3"/><path d="M0 105h330l-22 35H22z" fill="#a6a08f"/><text x="165" y="43" text-anchor="middle" font-family="Arial" font-size="29" font-weight="700" fill="#34352f">WE STAND TOGETHER</text><text x="165" y="82" text-anchor="middle" font-family="Georgia" font-size="22" fill="#5e6259">DELHI · PUBLIC CLAIMS</text></g>
+<g fill="#4b4b45"><circle cx="520" cy="360" r="25"/><path d="M495 385h52l18 150h-80Z"/><circle cx="370" cy="365" r="24"/><path d="M346 389h50l15 140h-78Z"/></g>
+<rect width="900" height="620" fill="#5b5b53" opacity=".10"/>
+</svg>

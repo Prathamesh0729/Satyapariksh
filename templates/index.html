@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SatyaPariksh — Jantar Mantar News Verification Desk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page-shell">
+
+  <div class="top-rule">
+    <span></span>
+    <span></span>
+  </div>
+
+  <header class="site-header">
+
+    <a class="brand" href="#top" aria-label="SatyaPariksh home">
+      <span class="brand-mark">SP</span>
+
+      <span class="brand-copy">
+        <strong>Satya<span>Pariksh</span></strong>
+        <small>Jantar Mantar news verification desk</small>
+      </span>
+    </a>
+
+    <nav>
+      <a href="#detector">DETECTOR</a>
+      <a href="#how">HOW IT WORKS</a>
+
+      <button class="history-btn" id="historyBtn" type="button">
+        ↶&nbsp; HISTORY <b id="historyCount">0</b>
+      </button>
+    </nav>
+
+    <div class="evidence-pill">
+      <i></i> Evidence first
+    </div>
+
+  </header>
+
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+
+      <div class="hero-copy">
+
+        <div class="kicker">
+          01 &nbsp;&nbsp; VERIFY BEFORE YOU AMPLIFY
+        </div>
+
+        <h1 id="hero-title">
+          Make the claim<br>
+          <em>earn</em> your<br>
+          trust.
+        </h1>
+
+        <p>
+          Check news and claims specifically against evidence associated
+          with Jantar Mantar, New Delhi.
+        </p>
+
+        <div class="hero-meta">
+          <span>♢ &nbsp; Source-based checks</span>
+          <span>⚑ &nbsp; Jantar Mantar scope</span>
+        </div>
+
+      </div>
+
+
+      <!-- INDIAN PROTEST PHOTO -->
+      <div class="field-note" aria-label="Indian protest field note">
+
+        <div class="photo-frame">
+
+          <img
+            src="{{ url_for('static', filename='images/indian_protest.png') }}"
+            alt="Indian protest with national flags and placards"
+          >
+
+          <span class="orange-star">✦</span>
+
+          <div class="note-card">
+
+            <small>FIELD NOTE / 07</small>
+
+            <strong>
+              Context is<br>
+              <em>evidence</em> too.
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLAIM DESK -->
+    <section
+      class="claim-section"
+      id="detector"
+      aria-labelledby="claim-title"
+    >
+
+      <div class="section-intro">
+
+        <span class="section-no">02</span>
+
+        <div>
+
+          <div class="kicker">
+            THE CLAIM DESK
+          </div>
+
+          <p>
+            Paste the story. We'll compare it with the detector's trained model.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="desk">
+
+        <!-- INPUT PANEL -->
+        <div class="desk-input">
+
+          <div class="scan-tabs" role="tablist">
+
+            <span class="ready-dot">●</span>
+
+            <span class="ready-label">
+              Ready for a claim
+            </span>
+
+            <button
+              class="scan-tab active"
+              data-mode="quick"
+              type="button"
+            >
+              ⌕&nbsp; Quick scan
+            </button>
+
+            <button
+              class="scan-tab"
+              data-mode="deep"
+              type="button"
+            >
+              ✣&nbsp; Deep scan
+            </button>
+
+          </div>
+
+
+          <form id="claimForm">
+
+            <label for="headline">
+              HEADLINE OR CLAIM
+            </label>
+
+            <input
+              id="headline"
+              name="headline"
+              autocomplete="off"
+              placeholder="What is being claimed?"
+            >
+
+
+            <label for="article">
+              ARTICLE TEXT <span>OPTIONAL</span>
+            </label>
+
+            <textarea
+              id="article"
+              name="article"
+              placeholder="Paste the article, post, or message here..."
+            ></textarea>
+
+
+            <label class="source-line" for="sourceUrl">
+
+              <span>↗</span>
+
+              <input
+                id="sourceUrl"
+                name="sourceUrl"
+                type="url"
+                placeholder="Add source URL (optional)"
+              >
+
+            </label>
+
+
+            <button
+              class="run-btn"
+              id="runBtn"
+              type="submit"
+            >
+              Run the check <span>↗</span>
+            </button>
+
+
+            <p class="desk-note">
+              Results are based on the current model and training dataset.
+              They are not a substitute for independent editorial verification.
+            </p>
+
+          </form>
+
+        </div>
+
+
+        <!-- RESULT PANEL -->
+        <aside
+          class="desk-result"
+          aria-live="polite"
+        >
+
+          <!-- EMPTY STATE -->
+          <div
+            id="emptyState"
+            class="empty-state"
+          >
+
+            <div class="shield">
+              ♢
+            </div>
+
+            <div class="kicker">
+              YOUR REVIEW WILL APPEAR HERE
+            </div>
+
+            <h2>
+              Evidence over<br>
+              <em>assumption.</em>
+            </h2>
+
+            <p>
+              We'll analyze the claim using the connected Python model.
+              For current events, verify the result against primary sources.
+            </p>
+
+            <div class="empty-lines">
+              <i></i>
+              <i></i>
+            </div>
+
+          </div>
+
+
+          <!-- RESULT STATE -->
+          <div
+            id="resultState"
+            class="result-state hidden"
+          >
+
+            <div class="result-kicker">
+              MODEL REVIEW /
+              <span id="modeLabel">QUICK SCAN</span>
+            </div>
+
+
+            <div
+              class="result-verdict"
+              id="verdict"
+            >
+              UNCERTAIN
+            </div>
+
+
+            <div class="confidence-row">
+
+              <strong id="confidence">
+                0%
+              </strong>
+
+              <span>
+                calibrated confidence
+              </span>
+
+            </div>
+
+
+            <!-- REAL PROBABILITY -->
+            <div class="probability">
+
+              <div>
+                <span>REAL</span>
+                <b id="realValue">0%</b>
+              </div>
+
+              <i>
+                <span id="realBar"></span>
+              </i>
+
+            </div>
+
+
+            <!-- FAKE PROBABILITY -->
+            <div class="probability">
+
+              <div>
+                <span>FAKE</span>
+                <b id="fakeValue">0%</b>
+              </div>
+
+              <i>
+                <span id="fakeBar"></span>
+              </i>
+
+            </div>
+
+
+            <p class="result-note">
+              A model prediction is an estimate from learned text patterns.
+              It does not independently prove whether an event happened.
+            </p>
+
+
+            <button
+              class="new-check"
+              id="newCheck"
+              type="button"
+            >
+              Start another check&nbsp; ↗
+            </button>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section
+      class="how-section"
+      id="how"
+    >
+
+      <div class="section-intro">
+
+        <span class="section-no">
+          03
+        </span>
+
+        <div>
+
+          <div class="kicker">
+            HOW THE REVIEW WORKS
+          </div>
+
+          <p>
+            Fast classification first; evidence remains the final authority.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="how-grid">
+
+        <article>
+
+          <span>01</span>
+
+          <h3>
+            Read the claim
+          </h3>
+
+          <p>
+            Headline and article text are combined into one model input.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>02</span>
+
+          <h3>
+            Extract patterns
+          </h3>
+
+          <p>
+            Word and character TF-IDF features represent the language patterns.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>03</span>
+
+          <h3>
+            Score the text
+          </h3>
+
+          <p>
+            A calibrated Logistic Regression model returns REAL and FAKE probabilities.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>04</span>
+
+          <h3>
+            Verify the evidence
+          </h3>
+
+          <p>
+            Official notices and primary records should be checked before
+            publishing a conclusion.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <span>
+      SatyaPariksh / Jantar Mantar verification desk
+    </span>
+
+    <span>
+      Model: TF-IDF + calibrated Logistic Regression
+    </span>
+
+  </footer>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
