@@ -1,10 +1,5277 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+/* =========================================================
 
-:root{--paper:#f7f2e9;--paper2:#fbf8f2;--ink:#29201c;--muted:#81766c;--line:#ded5c8;--red:#96352c;--orange:#ef7c10;--green:#28734b;--shadow:0 18px 45px rgba(57,39,22,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,input,textarea{font:inherit}.page-shell{min-height:100vh}.top-rule{height:4px;background:var(--ink);display:flex}.top-rule span:first-child{width:37%;background:var(--orange);margin-left:12%}.top-rule span:last-child{width:31%;background:var(--green);margin-left:auto;margin-right:12%}
-.site-header{max-width:1120px;margin:auto;height:80px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:30px;padding:0 8px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}.brand-mark{width:35px;height:35px;border:1px solid var(--red);display:grid;place-items:center;font:700 11px 'DM Mono',monospace;color:var(--red)}.brand-copy{display:flex;flex-direction:column}.brand-copy strong{font:700 17px 'Libre Baskerville',Georgia,serif}.brand-copy strong span{font-style:italic;color:var(--red)}.brand-copy small{font:9px 'DM Mono',monospace;color:var(--muted);letter-spacing:.04em;margin-top:2px}.site-header nav{display:flex;align-items:center;gap:26px}.site-header nav a,.history-btn{font:9px 'DM Mono',monospace;letter-spacing:.05em;color:var(--muted);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}.history-btn b{display:inline-grid;place-items:center;width:17px;height:17px;background:#e9dfd2;border-radius:50%;font-size:8px;color:var(--ink)}.evidence-pill{border:1px solid #cbd7cb;color:var(--green);font:9px 'DM Mono',monospace;padding:8px 11px}.evidence-pill i{display:inline-block;width:5px;height:5px;background:var(--green);border-radius:50%;margin-right:7px}
-main{max-width:1120px;margin:auto}.hero{min-height:660px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px;padding:65px 8px 80px}.kicker,.section-no,.result-kicker{font:9px 'DM Mono',monospace;letter-spacing:.12em;color:var(--red)}.hero h1{font:400 clamp(58px,7vw,92px)/.91 'Libre Baskerville',Georgia,serif;letter-spacing:-.055em;margin:27px 0 28px}.hero h1 em,.empty-state h2 em{color:var(--red);font-style:italic}.hero-copy>p{max-width:450px;color:#8a7e73;font-size:14px;line-height:1.8}.hero-meta{display:flex;gap:24px;margin-top:31px;font:9px 'DM Mono',monospace;color:#665b53}.field-note{display:flex;justify-content:center}.photo-frame{position:relative;width:min(470px,100%);background:#fff;padding:12px;box-shadow:var(--shadow);transform:rotate(1.2deg);border:1px solid #e2d9cc}.photo-frame img{display:block;width:100%;height:360px;object-fit:cover;background:#5b5a50;filter:saturate(.7) contrast(.95)}.orange-star{position:absolute;right:-13px;top:-14px;color:var(--orange);font-size:36px;line-height:1}.note-card{position:absolute;left:28px;bottom:28px;background:#fffdf8;padding:15px 18px;width:185px;box-shadow:0 5px 18px rgba(0,0,0,.08)}.note-card small{font:8px 'DM Mono',monospace;color:var(--red)}.note-card strong{display:block;font:400 16px/1.15 'Libre Baskerville',Georgia,serif;margin-top:7px}.note-card em{color:var(--red)}
-.claim-section{padding:70px 8px 85px}.section-intro{display:flex;gap:32px;align-items:flex-start;margin:0 0 30px 6px}.section-intro .section-no{color:var(--orange);min-width:22px}.section-intro p{font:13px/1.5 'Libre Baskerville',Georgia,serif;color:#83776c;margin:9px 0 0}.desk{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:var(--paper2);min-height:590px}.desk-input{padding:38px 40px;border-right:1px solid var(--line)}.desk-result{padding:38px 40px;display:flex;align-items:center;background:#fcfaf5}.scan-tabs{display:flex;align-items:center;gap:7px;margin-bottom:37px;font:9px 'DM Mono',monospace;color:#8a7e73}.ready-dot{color:#2e8c58;font-size:13px}.scan-tab{border:1px solid transparent;background:#f1ebe2;color:#9a8d82;padding:10px 12px;font:9px 'DM Mono',monospace;cursor:pointer}.scan-tab.active{background:#fff;border-color:#e1d6c8;box-shadow:0 2px 8px rgba(60,40,20,.05);color:var(--red)}.desk-input form{display:grid;gap:10px}.desk-input label{font:9px 'DM Mono',monospace;color:var(--red);letter-spacing:.1em;margin-top:1px}.desk-input label span{color:#9b9187;margin-left:5px}.desk-input input,.desk-input textarea{border:0;border-bottom:1px solid #ddd2c4;border-radius:0;background:transparent;color:var(--ink);outline:none;padding:7px 0;font-family:'Libre Baskerville',Georgia,serif}.desk-input input{font-size:15px}.desk-input textarea{min-height:185px;resize:vertical;font-size:13px;line-height:1.8}.desk-input input::placeholder,.desk-input textarea::placeholder{color:#9b9086}.desk-input input:focus,.desk-input textarea:focus{border-color:var(--red)}.source-line{display:flex!important;align-items:center;gap:9px;border-bottom:1px solid #ddd2c4;margin-top:7px;padding-bottom:4px}.source-line span{font:15px Arial;color:#806f63}.source-line input{border:0!important;flex:1}.run-btn{margin-top:14px;border:0;background:var(--red);color:#fff;padding:18px 18px;text-align:center;font:10px 'DM Mono',monospace;letter-spacing:.03em;cursor:pointer}.run-btn span{float:right;font-size:14px}.run-btn:disabled{opacity:.65;cursor:wait}.desk-note{font:8px/1.45 'DM Mono',monospace;color:#958b82;text-align:center;margin:4px auto 0;max-width:320px}.empty-state{max-width:340px}.shield{width:58px;height:58px;border:1px solid #dfc8b5;color:var(--orange);display:grid;place-items:center;font-size:29px;margin-bottom:34px}.empty-state h2{font:400 38px/.98 'Libre Baskerville',Georgia,serif;letter-spacing:-.04em;margin:25px 0}.empty-state p{font:13px/1.65 'Libre Baskerville',Georgia,serif;color:#8b7f74;max-width:300px}.empty-lines{margin-top:27px}.empty-lines i{display:block;width:95px;height:1px;background:#ddd1c2;margin:9px 0}.result-state{width:100%;max-width:370px}.hidden{display:none}.result-kicker{margin-bottom:15px}.result-verdict{display:inline-block;border:1px solid #d8c9bb;padding:8px 11px;font:9px 'DM Mono',monospace;letter-spacing:.08em;color:#8b6b56;background:#f5eee5}.result-verdict.real{color:var(--green);border-color:#c8ddcf;background:#eef7f1}.result-verdict.fake{color:var(--red);border-color:#e1c2be;background:#fbefed}.confidence-row{display:flex;align-items:end;gap:10px;margin:28px 0 23px}.confidence-row strong{font:400 54px/.85 'Libre Baskerville',Georgia,serif;letter-spacing:-.06em}.confidence-row span{font:9px 'DM Mono',monospace;color:#8d8177;padding-bottom:4px}.probability{margin:16px 0}.probability>div{display:flex;justify-content:space-between;font:9px 'DM Mono',monospace;color:#6d6259;margin-bottom:7px}.probability i{display:block;height:7px;background:#eee7dd;overflow:hidden}.probability i span{display:block;height:100%;width:0;background:var(--green);transition:width .45s}.probability:nth-of-type(3) i span{background:var(--red)}.result-note{font:9px/1.6 'DM Mono',monospace;color:#8d8177;border-top:1px solid #ded3c6;padding-top:18px;margin-top:25px}.new-check{margin-top:20px;background:transparent;border:1px solid #d9cfc4;color:var(--red);padding:11px 13px;font:9px 'DM Mono',monospace;cursor:pointer}
-.how-section{border-top:1px solid var(--line);padding:68px 8px 80px}.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}.how-grid article{background:var(--paper2);padding:27px 23px;min-height:175px}.how-grid article>span{font:9px 'DM Mono',monospace;color:var(--orange)}.how-grid h3{font:400 18px 'Libre Baskerville',Georgia,serif;margin:22px 0 9px}.how-grid p{font:11px/1.65 Arial,sans-serif;color:#81766d;margin:0}.site-header a:hover,.history-btn:hover{color:var(--red)}footer{max-width:1120px;margin:auto;border-top:1px solid var(--line);padding:23px 8px 35px;display:flex;justify-content:space-between;color:#8c8178;font:8px 'DM Mono',monospace;letter-spacing:.03em}
-@media(max-width:900px){.site-header{grid-template-columns:1fr auto}.site-header nav{display:none}.evidence-pill{display:none}.hero{grid-template-columns:1fr;padding-top:45px}.field-note{justify-content:flex-start}.desk{grid-template-columns:1fr}.desk-input{border-right:0;border-bottom:1px solid var(--line)}.how-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.site-header{height:72px;padding:0 16px}.brand-copy small{display:none}main{padding:0 16px}.hero{padding:50px 0 55px;gap:38px}.hero h1{font-size:54px}.photo-frame img{height:270px}.claim-section,.how-section{padding-left:0;padding-right:0}.desk-input,.desk-result{padding:28px 22px}.how-grid{grid-template-columns:1fr}footer{margin:0 16px;display:block}footer span{display:block;margin:5px 0}.top-rule span:first-child{margin-left:5%}.top-rule span:last-child{margin-right:5%}}
+   SATYAPARIKSH
+
+   BLACK INVESTIGATIVE NEWSPAPER
+
+   ========================================================= */
+
+:root {
+
+  --black: #050505;
+
+  --black-2: #090909;
+
+  --black-3: #101010;
+
+  --black-4: #171717;
+
+  --paper: #ddd4c1;
+
+  --paper-light: #eee6d5;
+
+  --white: #f4f0e7;
+
+  --muted: #9a958a;
+
+  --muted-2: #6e6a62;
+
+  --orange: #ff7a18;
+
+  --orange-bright: #ff9b3d;
+
+  --orange-dark: #b94808;
+
+  --green: #168b42;
+
+  --green-bright: #42bd69;
+
+  --green-dark: #07552a;
+
+  --red: #b51e19;
+
+  --red-bright: #ed4035;
+
+  --line: rgba(255,255,255,.13);
+
+  --line-soft: rgba(255,255,255,.07);
+
+  --shadow:
+
+    0 30px 90px rgba(0,0,0,.75);
+
+}
+
+/* =========================================================
+
+   RESET
+
+   ========================================================= */
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+
+  margin: 0;
+
+  background:
+
+    #020202;
+
+  color: var(--white);
+
+  font-family:
+
+    Arial,
+
+    Helvetica,
+
+    sans-serif;
+
+  line-height: 1.5;
+
+}
+
+button,
+
+input,
+
+textarea {
+
+  font: inherit;
+
+}
+
+button {
+
+  cursor: pointer;
+
+}
+
+a {
+
+  color: inherit;
+
+}
+
+/* =========================================================
+
+   BLACK NEWSPAPER
+
+   ========================================================= */
+
+.paper {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  max-width: 1550px;
+
+  margin: auto;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+
+      circle at 72% 30%,
+
+      rgba(255,122,24,.055),
+
+      transparent 28%
+
+    ),
+
+    radial-gradient(
+
+      circle at 88% 72%,
+
+      rgba(22,139,66,.06),
+
+      transparent 28%
+
+    ),
+
+    #050505;
+
+  box-shadow:
+
+    0 0 100px rgba(0,0,0,.9);
+
+}
+
+/ subtle newspaper grain /
+
+.paper::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 100;
+
+  pointer-events: none;
+
+  opacity: .13;
+
+  background-image:
+
+    radial-gradient(
+
+      rgba(255,255,255,.6) .5px,
+
+      transparent .7px
+
+    );
+
+  background-size: 5px 5px;
+
+  mix-blend-mode: overlay;
+
+}
+
+/ orange / green ambient edges /
+
+.paper::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 101;
+
+  background:
+
+    linear-gradient(
+
+      90deg,
+
+      rgba(255,122,24,.045),
+
+      transparent 18%,
+
+      transparent 78%,
+
+      rgba(22,139,66,.055)
+
+    );
+
+}
+
+/* =========================================================
+
+   TOP INFORMATION BAR
+
+   ========================================================= */
+
+.paper-topline {
+
+  position: relative;
+
+  z-index: 20;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 9px 48px;
+
+  border-bottom:
+
+    1px solid var(--line);
+
+  color: #77736a;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: .2em;
+
+  background: #030303;
+
+}
+
+/* =========================================================
+
+   MASTHEAD
+
+   ========================================================= */
+
+.masthead {
+
+  position: relative;
+
+  z-index: 20;
+
+  display: grid;
+
+  grid-template-columns:
+
+    180px 1fr 180px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding:
+
+    25px 48px 28px;
+
+  background:
+
+    #050505;
+
+}
+
+.masthead-small {
+
+  display: flex;
+
+  flex-direction: column;
+
+  color: #7b766c;
+
+  font-family:
+
+    Georgia,
+
+    "Times New Roman",
+
+    serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: .95;
+
+  letter-spacing: .05em;
+
+}
+
+.masthead-title {
+
+  text-align: center;
+
+  text-decoration: none;
+
+  color: var(--white);
+
+  font-family:
+
+    Georgia,
+
+    "Times New Roman",
+
+    serif;
+
+  font-size:
+
+    clamp(3rem, 6vw, 6.4rem);
+
+  font-weight: 900;
+
+  line-height: .8;
+
+  letter-spacing: -.075em;
+
+  text-shadow:
+
+    0 0 40px rgba(255,255,255,.04);
+
+}
+
+.masthead-title span {
+
+  color: var(--orange);
+
+  text-shadow:
+
+    0 0 35px rgba(255,122,24,.15);
+
+}
+
+.masthead-meta {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  color: #747067;
+
+  font-size: 8px;
+
+  line-height: 1.15;
+
+  letter-spacing: .16em;
+
+}
+
+.masthead-meta strong:first-child {
+
+  color: var(--orange);
+
+}
+
+.masthead-meta strong:last-child {
+
+  color: var(--green-bright);
+
+}
+
+/* =========================================================
+
+   TRICOLOUR
+
+   ========================================================= */
+
+.tricolour-rule {
+
+  position: relative;
+
+  z-index: 30;
+
+  display: grid;
+
+  grid-template-columns:
+
+    1fr 1fr 1fr;
+
+  height: 5px;
+
+  margin:
+
+    0 48px;
+
+  box-shadow:
+
+    0 0 18px rgba(255,122,24,.15);
+
+}
+
+.tricolour-rule span:nth-child(1) {
+
+  background: var(--orange);
+
+}
+
+.tricolour-rule span:nth-child(2) {
+
+  background: #d9d2c2;
+
+}
+
+.tricolour-rule span:nth-child(3) {
+
+  background: var(--green);
+
+}
+
+/* =========================================================
+
+   NAVIGATION
+
+   ========================================================= */
+
+.newspaper-nav {
+
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding:
+
+    12px 48px;
+
+  border-bottom:
+
+    1px solid var(--line);
+
+  background:
+
+    rgba(4,4,4,.96);
+
+}
+
+.newspaper-nav div {
+
+  display: flex;
+
+  gap: 30px;
+
+}
+
+.newspaper-nav a {
+
+  text-decoration: none;
+
+  color: #88837a;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: .16em;
+
+  transition:
+
+    color .2s ease;
+
+}
+
+.newspaper-nav a:hover {
+
+  color: var(--orange);
+
+}
+
+.newspaper-nav button {
+
+  border: 0;
+
+  background: transparent;
+
+  color: #817c73;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: .14em;
+
+}
+
+.newspaper-nav button:hover {
+
+  color: var(--green-bright);
+
+}
+
+.newspaper-nav button b {
+
+  color: var(--orange);
+
+}
+
+/* =========================================================
+
+   HERO
+
+   ========================================================= */
+
+.front-page {
+
+  position: relative;
+
+  min-height: 790px;
+
+  display: grid;
+
+  /*
+
+    TEXT
+
+    MAP
+
+    SMALL INFO
+
+  */
+
+  grid-template-columns:
+
+    minmax(360px, .72fr)
+
+    minmax(600px, 1.45fr)
+
+    minmax(130px, .28fr);
+
+  gap: 35px;
+
+  padding:
+
+    65px 48px 75px;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+
+      ellipse at 76% 45%,
+
+      rgba(255,122,24,.11),
+
+      transparent 25%
+
+    ),
+
+    radial-gradient(
+
+      ellipse at 88% 70%,
+
+      rgba(22,139,66,.12),
+
+      transparent 25%
+
+    ),
+
+    #050505;
+
+}
+
+/ left vertical line /
+
+.editorial-column {
+
+  position: relative;
+
+  z-index: 50;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  border-right:
+
+    1px solid var(--line);
+
+  padding:
+
+    25px 55px 25px 0;
+
+}
+
+/* =========================================================
+
+   HERO TEXT
+
+   ========================================================= */
+
+.eyebrow {
+
+  color: var(--orange);
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: .2em;
+
+  text-shadow:
+
+    0 0 15px rgba(255,122,24,.25);
+
+}
+
+.editorial-column h1 {
+
+  margin:
+
+    22px 0 28px;
+
+  font-family:
+
+    Georgia,
+
+    "Times New Roman",
+
+    serif;
+
+  font-size:
+
+    clamp(4rem, 6.3vw, 7rem);
+
+  line-height: .82;
+
+  letter-spacing: -.07em;
+
+  font-weight: 900;
+
+  color: #f3efe5;
+
+}
+
+.editorial-column h1 em {
+
+  color: var(--orange);
+
+  font-weight: 500;
+
+  font-style: italic;
+
+  text-shadow:
+
+    0 0 30px rgba(255,122,24,.14);
+
+}
+
+.headline-rule {
+
+  width: 90%;
+
+  height: 3px;
+
+  margin:
+
+    0 0 25px;
+
+  background:
+
+    linear-gradient(
+
+      90deg,
+
+      var(--orange),
+
+      var(--orange-dark),
+
+      transparent
+
+    );
+
+  box-shadow:
+
+    0 0 12px rgba(255,122,24,.16);
+
+}
+
+.hero-intro {
+
+  max-width: 460px;
+
+  margin: 0;
+
+  color: #a19b90;
+
+  font-family:
+
+    Georgia,
+
+    "Times New Roman",
+
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+}
+
+/* =========================================================
+
+   EDITORIAL NOTE
+
+   ========================================================= */
+
+.editorial-note {
+
+  display: grid;
+
+  grid-template-columns:
+
+    35px 1fr;
+
+  gap: 15px;
+
+  max-width: 440px;
+
+  margin-top: 32px;
+
+  padding-top: 17px;
+
+  border-top:
+
+    1px solid var(--line);
+
+}
+
+.note-number {
+
+  color: var(--orange);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size: 22px;
+
+}
+
+.editorial-note strong {
+
+  color: var(--white);
+
+  font-size: 8px;
+
+  letter-spacing: .15em;
+
+}
+
+.editorial-note p {
+
+  margin:
+
+    6px 0 0;
+
+  color: #77736c;
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+}
+
+/* =========================================================
+
+   CTA
+
+   ========================================================= */
+
+.primary-link {
+
+  align-self: flex-start;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 35px;
+
+  padding:
+
+    13px 17px;
+
+  border:
+
+    1px solid var(--orange);
+
+  background:
+
+    rgba(255,122,24,.055);
+
+  text-decoration: none;
+
+  color: var(--orange-bright);
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: .15em;
+
+  box-shadow:
+
+    0 0 25px rgba(255,122,24,.06);
+
+  transition:
+
+    background .2s ease,
+
+    color .2s ease,
+
+    transform .2s ease;
+
+}
+
+.primary-link:hover {
+
+  background:
+
+    var(--orange);
+
+  color:
+
+    #080808;
+
+  transform:
+
+    translateY(-2px);
+
+}
+
+.primary-link span {
+
+  font-size: 17px;
+
+}
+
+/* =========================================================
+
+   MAP AREA
+
+   ========================================================= */
+
+.front-visual {
+
+  position: relative;
+
+  min-height: 690px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  /*
+
+    Push visual clearly toward RIGHT
+
+  */
+
+  transform:
+
+    translateX(35px);
+
+}
+
+/ ambient glow behind map /
+
+.front-visual::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+
+  height: 600px;
+
+  border-radius: 50%;
+
+  background:
+
+    radial-gradient(
+
+      circle,
+
+      rgba(255,122,24,.16),
+
+      rgba(255,122,24,.05) 35%,
+
+      transparent 70%
+
+    );
+
+  filter:
+
+    blur(20px);
+
+  animation:
+
+    orangeAtmosphere 6s ease-in-out infinite;
+
+}
+
+.front-visual::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+
+  height: 500px;
+
+  border-radius: 50%;
+
+  background:
+
+    radial-gradient(
+
+      circle,
+
+      rgba(22,139,66,.17),
+
+      transparent 68%
+
+    );
+
+  filter:
+
+    blur(35px);
+
+  transform:
+
+    translate(130px, 130px);
+
+  animation:
+
+    greenAtmosphere 7s ease-in-out infinite;
+
+}
+
+@keyframes orangeAtmosphere {
+
+  0%,100% {
+
+    opacity: .55;
+
+    transform: scale(.95);
+
+  }
+
+  50% {
+
+    opacity: .9;
+
+    transform: scale(1.08);
+
+  }
+
+}
+
+@keyframes greenAtmosphere {
+
+  0%,100% {
+
+    opacity: .4;
+
+  }
+
+  50% {
+
+    opacity: .8;
+
+  }
+
+}
+
+/* =========================================================
+
+   MAP PAPER
+
+   ========================================================= */
+
+.map-paper {
+
+  position: relative;
+
+  width:
+
+    min(720px, 100%);
+
+  height:
+
+    700px;
+
+  z-index: 10;
+
+  isolation: isolate;
+
+}
+
+/* =========================================================
+
+   REAL INDIA MAP
+
+   ========================================================= */
+
+.india-map {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 5;
+
+  display: block;
+
+  /*
+
+    Strong black newspaper ink
+
+  */
+
+  filter:
+
+    grayscale(1)
+
+    contrast(1.7)
+
+    brightness(.55)
+
+    sepia(.12);
+
+  /*
+
+    Important:
+
+    white map background becomes transparent
+
+    against the black environment.
+
+  */
+
+  mix-blend-mode:
+
+    screen;
+
+  opacity: .94;
+
+  transform:
+
+    scale(1.08);
+
+  animation:
+
+    mapBreath 8s ease-in-out infinite;
+
+}
+
+@keyframes mapBreath {
+
+  0%,100% {
+
+    transform:
+
+      scale(1.06)
+
+      translateY(0);
+
+  }
+
+  50% {
+
+    transform:
+
+      scale(1.09)
+
+      translateY(-5px);
+
+  }
+
+}
+
+/* =========================================================
+
+   MAP ORANGE/GREEN LIGHT
+
+   ========================================================= */
+
+.colour-wash {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter:
+
+    blur(80px);
+
+  z-index: 2;
+
+}
+
+.saffron-wash {
+
+  width: 420px;
+
+  height: 420px;
+
+  right: 7%;
+
+  top: 5%;
+
+  background:
+
+    rgba(255,122,24,.35);
+
+  animation:
+
+    saffronWash 5s ease-in-out infinite;
+
+}
+
+.green-wash {
+
+  width: 400px;
+
+  height: 400px;
+
+  left: 15%;
+
+  bottom: 4%;
+
+  background:
+
+    rgba(22,139,66,.32);
+
+  animation:
+
+    greenWash 6s ease-in-out infinite;
+
+}
+
+@keyframes saffronWash {
+
+  0%,100% {
+
+    opacity: .35;
+
+    transform: scale(.9);
+
+  }
+
+  50% {
+
+    opacity: .75;
+
+    transform: scale(1.12);
+
+  }
+
+}
+
+@keyframes greenWash {
+
+  0%,100% {
+
+    opacity: .3;
+
+    transform: scale(1);
+
+  }
+
+  50% {
+
+    opacity: .7;
+
+    transform: scale(1.1);
+
+  }
+
+}
+
+/* =========================================================
+
+   MAP LABEL
+
+   ========================================================= */
+
+.map-kicker {
+
+  position: absolute;
+
+  left: 9%;
+
+  top: 8%;
+
+  z-index: 20;
+
+  color: var(--orange);
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: .2em;
+
+}
+
+.map-caption {
+
+  position: absolute;
+
+  right: 6%;
+
+  bottom: 7%;
+
+  z-index: 25;
+
+  text-align: right;
+
+}
+
+.map-caption strong {
+
+  display: block;
+
+  color: var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    clamp(3rem, 5vw, 5rem);
+
+  line-height: .8;
+
+  letter-spacing: .06em;
+
+  text-shadow:
+
+    0 5px 30px rgba(0,0,0,.8);
+
+}
+
+.map-caption span {
+
+  display: block;
+
+  margin-top: 9px;
+
+  color: var(--green-bright);
+
+  font-size: 7px;
+
+  font-weight: 900;
+
+  letter-spacing: .2em;
+
+}
+
+/* =========================================================
+
+   PROTEST PHOTO
+
+   ========================================================= */
+
+.photo-break {
+
+  position: absolute;
+
+  width:
+
+    285px;
+
+  height:
+
+    285px;
+
+  left:
+
+    48%;
+
+  top:
+
+    47%;
+
+  transform:
+
+    translate(-50%, -50%)
+
+    rotate(-4deg);
+
+  z-index: 20;
+
+  padding:
+
+    8px;
+
+  background:
+
+    #080808;
+
+  border:
+
+    1px solid rgba(255,255,255,.2);
+
+  box-shadow:
+
+    0 30px 70px rgba(0,0,0,.9),
+
+    0 0 40px rgba(255,122,24,.12);
+
+  animation:
+
+    photoFloat 5s ease-in-out infinite;
+
+}
+
+.photo-break img {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter:
+
+    saturate(.85)
+
+    contrast(1.12)
+
+    brightness(.9);
+
+}
+
+@keyframes photoFloat {
+
+  0%,100% {
+
+    transform:
+
+      translate(-50%, -50%)
+
+      rotate(-4deg);
+
+  }
+
+  50% {
+
+    transform:
+
+      translate(-50%, -53%)
+
+      rotate(-2deg);
+
+  }
+
+}
+
+/* =========================================================
+
+   TORN PHOTO EDGE
+
+   ========================================================= */
+
+.torn-edge {
+
+  position: absolute;
+
+  inset:
+
+    -14px;
+
+  z-index: 25;
+
+  pointer-events: none;
+
+  border:
+
+    2px solid rgba(238,230,213,.9);
+
+  clip-path:
+
+    polygon(
+
+      0 10%,
+
+      12% 3%,
+
+      25% 7%,
+
+      39% 1%,
+
+      53% 6%,
+
+      68% 2%,
+
+      83% 7%,
+
+      100% 3%,
+
+      97% 22%,
+
+      100% 40%,
+
+      96% 60%,
+
+      100% 79%,
+
+      91% 100%,
+
+      72% 95%,
+
+      56% 100%,
+
+      38% 96%,
+
+      20% 100%,
+
+      4% 93%,
+
+      7% 72%,
+
+      1% 52%,
+
+      5% 32%
+
+    );
+
+  box-shadow:
+
+    0 0 20px rgba(255,122,24,.15);
+
+}
+
+/* =========================================================
+
+   CRACKS
+
+   ========================================================= */
+
+.fracture {
+
+  position: absolute;
+
+  z-index: 35;
+
+  height: 3px;
+
+  background:
+
+    linear-gradient(
+
+      90deg,
+
+      var(--orange),
+
+      #eee6d5,
+
+      var(--red)
+
+    );
+
+  transform-origin:
+
+    left center;
+
+  box-shadow:
+
+    0 0 8px rgba(255,122,24,.45);
+
+  opacity: .95;
+
+}
+
+.fracture::before,
+
+.fracture::after {
+
+  content: "";
+
+  position: absolute;
+
+  height: 2px;
+
+  background:
+
+    var(--paper-light);
+
+  transform-origin:
+
+    left center;
+
+  box-shadow:
+
+    0 0 6px rgba(255,122,24,.25);
+
+}
+
+.fracture-a {
+
+  width:
+
+    180px;
+
+  left:
+
+    28%;
+
+  top:
+
+    40%;
+
+  transform:
+
+    rotate(24deg);
+
+}
+
+.fracture-a::before {
+
+  width:
+
+    85px;
+
+  left:
+
+    60px;
+
+  top:
+
+    -25px;
+
+  transform:
+
+    rotate(-34deg);
+
+}
+
+.fracture-a::after {
+
+  width:
+
+    70px;
+
+  left:
+
+    95px;
+
+  top:
+
+    19px;
+
+  transform:
+
+    rotate(38deg);
+
+}
+
+.fracture-b {
+
+  width:
+
+    140px;
+
+  left:
+
+    48%;
+
+  top:
+
+    29%;
+
+  transform:
+
+    rotate(-28deg);
+
+}
+
+.fracture-b::before {
+
+  width:
+
+    75px;
+
+  left:
+
+    38px;
+
+  top:
+
+    20px;
+
+  transform:
+
+    rotate(40deg);
+
+}
+
+.fracture-c {
+
+  width:
+
+    150px;
+
+  left:
+
+    56%;
+
+  top:
+
+    54%;
+
+  transform:
+
+    rotate(-11deg);
+
+}
+
+.fracture-c::before {
+
+  width:
+
+    80px;
+
+  left:
+
+    50px;
+
+  top:
+
+    -23px;
+
+  transform:
+
+    rotate(-40deg);
+
+}
+
+.fracture-c::after {
+
+  width:
+
+    65px;
+
+  left:
+
+    85px;
+
+  top:
+
+    18px;
+
+  transform:
+
+    rotate(35deg);
+
+}
+
+.fracture-d {
+
+  width:
+
+    125px;
+
+  left:
+
+    39%;
+
+  top:
+
+    63%;
+
+  transform:
+
+    rotate(25deg);
+
+}
+
+.fracture-d::before {
+
+  width:
+
+    65px;
+
+  left:
+
+    35px;
+
+  top:
+
+    18px;
+
+  transform:
+
+    rotate(-40deg);
+
+}
+
+/* =========================================================
+
+   BLOOD / RED INK
+
+   ========================================================= */
+
+.ink-drop {
+
+  position: absolute;
+
+  z-index: 45;
+
+  width: 9px;
+
+  height: 18px;
+
+  border-radius:
+
+    60% 60% 65% 65%;
+
+  background:
+
+    radial-gradient(
+
+      circle at 35% 20%,
+
+      #f35c50,
+
+      var(--red) 45%,
+
+      #500c09
+
+    );
+
+  transform:
+
+    rotate(42deg);
+
+  opacity: 0;
+
+  box-shadow:
+
+    0 3px 12px rgba(181,30,25,.7);
+
+  animation:
+
+    bloodFall 4.5s ease-in infinite;
+
+}
+
+.ink-1 {
+
+  left:
+
+    49%;
+
+  top:
+
+    48%;
+
+  animation-delay:
+
+    .2s;
+
+}
+
+.ink-2 {
+
+  left:
+
+    56%;
+
+  top:
+
+    51%;
+
+  width:
+
+    7px;
+
+  height:
+
+    14px;
+
+  animation-delay:
+
+    1.1s;
+
+}
+
+.ink-3 {
+
+  left:
+
+    43%;
+
+  top:
+
+    57%;
+
+  width:
+
+    6px;
+
+  height:
+
+    11px;
+
+  animation-delay:
+
+    2s;
+
+}
+
+.ink-4 {
+
+  left:
+
+    59%;
+
+  top:
+
+    61%;
+
+  width:
+
+    8px;
+
+  height:
+
+    15px;
+
+  animation-delay:
+
+    3s;
+
+}
+
+@keyframes bloodFall {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+
+      translateY(-8px)
+
+      rotate(42deg)
+
+      scale(.5);
+
+  }
+
+  15% {
+
+    opacity: .95;
+
+  }
+
+  70% {
+
+    opacity: .9;
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform:
+
+      translateY(90px)
+
+      rotate(42deg)
+
+      scale(.95);
+
+  }
+
+}
+
+/ splatter /
+
+.ink-splatter {
+
+  position: absolute;
+
+  z-index: 46;
+
+  width: 4px;
+
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+
+    var(--red);
+
+  box-shadow:
+
+    13px -7px 0 var(--red),
+
+    -10px -4px 0 var(--red),
+
+    8px 11px 0 var(--red),
+
+    -7px 12px 0 var(--red);
+
+}
+
+.splatter-1 {
+
+  left:
+
+    51%;
+
+  top:
+
+    51%;
+
+}
+
+.splatter-2 {
+
+  left:
+
+    43%;
+
+  top:
+
+    59%;
+
+  transform:
+
+    scale(.7);
+
+}
+
+/* =========================================================
+
+   VISUAL CAPTION
+
+   ========================================================= */
+
+.visual-caption {
+
+  position: absolute;
+
+  left:
+
+    5%;
+
+  right:
+
+    5%;
+
+  bottom:
+
+    -4px;
+
+  display: grid;
+
+  grid-template-columns:
+
+    60px 1fr;
+
+  gap:
+
+    14px;
+
+  padding-top:
+
+    9px;
+
+  border-top:
+
+    1px solid var(--line);
+
+}
+
+.visual-caption span {
+
+  color:
+
+    var(--orange);
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .15em;
+
+}
+
+.visual-caption p {
+
+  margin:
+
+    0;
+
+  color:
+
+    #77736b;
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    10px;
+
+}
+
+/* =========================================================
+
+   RIGHT INFORMATION COLUMN
+
+   ========================================================= */
+
+.front-aside {
+
+  position:
+
+    relative;
+
+  z-index:
+
+    40;
+
+  border-left:
+
+    1px solid var(--line);
+
+  padding:
+
+    20px 0 20px 25px;
+
+}
+
+.aside-label {
+
+  color:
+
+    var(--orange);
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .18em;
+
+  margin-bottom:
+
+    13px;
+
+}
+
+.status-live {
+
+  display:
+
+    flex;
+
+  align-items:
+
+    center;
+
+  gap:
+
+    7px;
+
+  padding-bottom:
+
+    18px;
+
+  border-bottom:
+
+    1px solid var(--line);
+
+  color:
+
+    var(--green-bright);
+
+  font-size:
+
+    7px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .12em;
+
+}
+
+.status-live span {
+
+  width:
+
+    6px;
+
+  height:
+
+    6px;
+
+  border-radius:
+
+    50%;
+
+  background:
+
+    var(--green-bright);
+
+  box-shadow:
+
+    0 0 12px var(--green-bright);
+
+}
+
+.aside-block {
+
+  padding:
+
+    18px 0;
+
+  border-bottom:
+
+    1px solid var(--line-soft);
+
+}
+
+.aside-block strong {
+
+  display:
+
+    block;
+
+  color:
+
+    var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    13px;
+
+}
+
+.aside-block:nth-of-type(1) strong {
+
+  color:
+
+    var(--orange);
+
+}
+
+.aside-block:nth-of-type(2) strong {
+
+  color:
+
+    var(--green-bright);
+
+}
+
+.aside-block:nth-of-type(3) strong {
+
+  color:
+
+    var(--red-bright);
+
+}
+
+.aside-block p {
+
+  margin:
+
+    7px 0 0;
+
+  color:
+
+    #77736b;
+
+  font-size:
+
+    9px;
+
+  line-height:
+
+    1.6;
+
+}
+
+/* =========================================================
+
+   CLAIM SECTION
+
+   ========================================================= */
+
+.claim-section {
+
+  position:
+
+    relative;
+
+  padding:
+
+    95px 48px;
+
+  background:
+
+    #080808;
+
+  border-top:
+
+    1px solid var(--line);
+
+  border-bottom:
+
+    1px solid var(--line);
+
+}
+
+.section-heading {
+
+  display:
+
+    grid;
+
+  grid-template-columns:
+
+    45px 1fr 330px;
+
+  gap:
+
+    25px;
+
+  align-items:
+
+    end;
+
+  margin-bottom:
+
+    45px;
+
+}
+
+.section-number {
+
+  color:
+
+    var(--orange);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    14px;
+
+}
+
+.section-kicker {
+
+  color:
+
+    var(--green-bright);
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .18em;
+
+}
+
+.section-heading h2 {
+
+  margin:
+
+    9px 0 0;
+
+  color:
+
+    var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    clamp(2.6rem, 5vw, 5rem);
+
+  line-height:
+
+    .88;
+
+  letter-spacing:
+
+    -.06em;
+
+}
+
+.section-heading h2 em {
+
+  color:
+
+    var(--orange);
+
+  font-weight:
+
+    500;
+
+}
+
+.section-heading > p {
+
+  margin:
+
+    0;
+
+  padding-left:
+
+    20px;
+
+  border-left:
+
+    1px solid var(--line);
+
+  color:
+
+    #77736b;
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    12px;
+
+  line-height:
+
+    1.7;
+
+}
+
+/* =========================================================
+
+   DETECTOR DESK
+
+   ========================================================= */
+
+.desk {
+
+  display:
+
+    grid;
+
+  grid-template-columns:
+
+    1.15fr .85fr;
+
+  border:
+
+    1px solid var(--line);
+
+  background:
+
+    #0c0c0c;
+
+  box-shadow:
+
+    var(--shadow);
+
+  overflow:
+
+    hidden;
+
+}
+
+.desk-input {
+
+  padding:
+
+    35px;
+
+  border-right:
+
+    1px solid var(--line);
+
+}
+
+.desk-top {
+
+  display:
+
+    flex;
+
+  justify-content:
+
+    space-between;
+
+  padding-bottom:
+
+    15px;
+
+  margin-bottom:
+
+    30px;
+
+  border-bottom:
+
+    2px solid var(--orange);
+
+  color:
+
+    #77736b;
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .14em;
+
+}
+
+.desk-top span:first-child {
+
+  color:
+
+    var(--green-bright);
+
+}
+
+.desk-top i {
+
+  display:
+
+    inline-block;
+
+  width:
+
+    6px;
+
+  height:
+
+    6px;
+
+  margin-right:
+
+    6px;
+
+  border-radius:
+
+    50%;
+
+  background:
+
+    var(--green-bright);
+
+  box-shadow:
+
+    0 0 10px var(--green-bright);
+
+}
+
+.desk-top b {
+
+  color:
+
+    var(--orange);
+
+}
+
+/* =========================================================
+
+   FORM
+
+   ========================================================= */
+
+#claimForm {
+
+  display:
+
+    grid;
+
+  gap:
+
+    10px;
+
+}
+
+#claimForm label {
+
+  margin-top:
+
+    5px;
+
+  color:
+
+    #c5c0b6;
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .15em;
+
+}
+
+#claimForm label small {
+
+  color:
+
+    #69655e;
+
+  font-weight:
+
+    500;
+
+  letter-spacing:
+
+    .03em;
+
+}
+
+#claimForm input,
+
+#claimForm textarea {
+
+  width:
+
+    100%;
+
+  border:
+
+    1px solid var(--line);
+
+  border-radius:
+
+    0;
+
+  background:
+
+    #111;
+
+  color:
+
+    var(--white);
+
+  padding:
+
+    14px;
+
+  outline:
+
+    none;
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    14px;
+
+  transition:
+
+    border-color .2s ease,
+
+    box-shadow .2s ease;
+
+}
+
+#claimForm input {
+
+  height:
+
+    50px;
+
+}
+
+#claimForm textarea {
+
+  min-height:
+
+    180px;
+
+  resize:
+
+    vertical;
+
+}
+
+#claimForm input::placeholder,
+
+#claimForm textarea::placeholder {
+
+  color:
+
+    #5f5b55;
+
+}
+
+#claimForm input:focus,
+
+#claimForm textarea:focus {
+
+  border-color:
+
+    var(--orange);
+
+  box-shadow:
+
+    0 0 0 2px rgba(255,122,24,.08);
+
+}
+
+/ source /
+
+.source-input {
+
+  display:
+
+    flex !important;
+
+  align-items:
+
+    center;
+
+  gap:
+
+    8px;
+
+  padding-left:
+
+    12px;
+
+  border:
+
+    1px solid var(--line);
+
+  color:
+
+    var(--orange) !important;
+
+}
+
+.source-input input {
+
+  border:
+
+    0 !important;
+
+  background:
+
+    transparent !important;
+
+  box-shadow:
+
+    none !important;
+
+  padding-left:
+
+    0 !important;
+
+}
+
+/* =========================================================
+
+   VERIFY BUTTON
+
+   ========================================================= */
+
+.verify-button {
+
+  display:
+
+    flex;
+
+  justify-content:
+
+    space-between;
+
+  align-items:
+
+    center;
+
+  width:
+
+    100%;
+
+  margin-top:
+
+    12px;
+
+  padding:
+
+    16px 18px;
+
+  border:
+
+    1px solid var(--orange);
+
+  border-radius:
+
+    0;
+
+  background:
+
+    var(--orange);
+
+  color:
+
+    #070707;
+
+  font-size:
+
+    9px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .15em;
+
+  box-shadow:
+
+    0 10px 30px rgba(255,122,24,.12);
+
+  transition:
+
+    background .2s ease,
+
+    box-shadow .2s ease,
+
+    transform .2s ease;
+
+}
+
+.verify-button:hover {
+
+  background:
+
+    var(--orange-bright);
+
+  box-shadow:
+
+    0 15px 40px rgba(255,122,24,.22);
+
+  transform:
+
+    translateY(-2px);
+
+}
+
+.verify-button strong {
+
+  font-size:
+
+    18px;
+
+}
+
+.form-warning {
+
+  margin:
+
+    6px 0 0;
+
+  color:
+
+    #66625b;
+
+  font-size:
+
+    7px;
+
+  line-height:
+
+    1.6;
+
+  letter-spacing:
+
+    .06em;
+
+}
+
+/* =========================================================
+
+   RESULT PANEL
+
+   ========================================================= */
+
+.desk-result {
+
+  min-height:
+
+    510px;
+
+  padding:
+
+    35px;
+
+  background:
+
+    radial-gradient(
+
+      circle at 85% 15%,
+
+      rgba(22,139,66,.08),
+
+      transparent 35%
+
+    ),
+
+    #0a0a0a;
+
+  display:
+
+    flex;
+
+  align-items:
+
+    center;
+
+}
+
+.empty-state {
+
+  width:
+
+    100%;
+
+}
+
+.empty-number {
+
+  color:
+
+    var(--orange);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    12px;
+
+}
+
+.empty-kicker {
+
+  margin-top:
+
+    35px;
+
+  color:
+
+    var(--green-bright);
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .17em;
+
+}
+
+.empty-state h3 {
+
+  margin:
+
+    12px 0;
+
+  color:
+
+    var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    clamp(2.5rem, 4vw, 4rem);
+
+  line-height:
+
+    .9;
+
+  letter-spacing:
+
+    -.06em;
+
+}
+
+.empty-state h3 em {
+
+  color:
+
+    var(--orange);
+
+  font-weight:
+
+    500;
+
+}
+
+.empty-state p {
+
+  max-width:
+
+    370px;
+
+  color:
+
+    #77736b;
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    12px;
+
+  line-height:
+
+    1.7;
+
+}
+
+.waiting-lines {
+
+  display:
+
+    grid;
+
+  gap:
+
+    7px;
+
+  margin-top:
+
+    30px;
+
+}
+
+.waiting-lines span {
+
+  display:
+
+    block;
+
+  height:
+
+    1px;
+
+  background:
+
+    var(--line);
+
+}
+
+.waiting-lines span:nth-child(2) {
+
+  width:
+
+    75%;
+
+}
+
+.waiting-lines span:nth-child(3) {
+
+  width:
+
+    50%;
+
+}
+
+/* =========================================================
+
+   RESULT
+
+   ========================================================= */
+
+.hidden {
+
+  display:
+
+    none !important;
+
+}
+
+.result-state {
+
+  width:
+
+    100%;
+
+}
+
+.result-topline {
+
+  color:
+
+    #77736b;
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .16em;
+
+}
+
+.result-topline span {
+
+  color:
+
+    var(--orange);
+
+}
+
+.result-verdict {
+
+  margin:
+
+    20px 0 8px;
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    clamp(3rem, 5vw, 5rem);
+
+  line-height:
+
+    .85;
+
+  letter-spacing:
+
+    -.06em;
+
+  color:
+
+    var(--orange);
+
+}
+
+.result-verdict.real,
+
+.result-verdict.REAL {
+
+  color:
+
+    var(--green-bright);
+
+}
+
+.result-verdict.fake,
+
+.result-verdict.FAKE {
+
+  color:
+
+    var(--red-bright);
+
+}
+
+.result-verdict.uncertain,
+
+.result-verdict.UNCERTAIN {
+
+  color:
+
+    var(--orange);
+
+}
+
+.confidence-row {
+
+  display:
+
+    flex;
+
+  align-items:
+
+    baseline;
+
+  gap:
+
+    9px;
+
+  margin-bottom:
+
+    35px;
+
+}
+
+.confidence-row strong {
+
+  color:
+
+    var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    28px;
+
+}
+
+.confidence-row span {
+
+  color:
+
+    #77736b;
+
+  font-size:
+
+    8px;
+
+  text-transform:
+
+    uppercase;
+
+  letter-spacing:
+
+    .12em;
+
+}
+
+/* =========================================================
+
+   PROBABILITY
+
+   ========================================================= */
+
+.probability {
+
+  margin-bottom:
+
+    22px;
+
+}
+
+.probability > div {
+
+  display:
+
+    flex;
+
+  justify-content:
+
+    space-between;
+
+  margin-bottom:
+
+    7px;
+
+}
+
+.probability > div span {
+
+  color:
+
+    #aaa49a;
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .15em;
+
+}
+
+.probability > div b {
+
+  color:
+
+    var(--white);
+
+  font-size:
+
+    10px;
+
+}
+
+.probability > i {
+
+  display:
+
+    block;
+
+  height:
+
+    7px;
+
+  background:
+
+    #242424;
+
+  overflow:
+
+    hidden;
+
+}
+
+.probability > i span {
+
+  display:
+
+    block;
+
+  width:
+
+    0%;
+
+  height:
+
+    100%;
+
+  background:
+
+    linear-gradient(
+
+      90deg,
+
+      var(--orange-dark),
+
+      var(--orange-bright)
+
+    );
+
+  transition:
+
+    width .7s ease;
+
+}
+
+.probability:nth-of-type(2) > i span {
+
+  background:
+
+    linear-gradient(
+
+      90deg,
+
+      var(--green-dark),
+
+      var(--green-bright)
+
+    );
+
+}
+
+/* =========================================================
+
+   RESULT WARNING
+
+   ========================================================= */
+
+.result-warning {
+
+  margin-top:
+
+    30px;
+
+  padding:
+
+    14px;
+
+  border-left:
+
+    3px solid var(--red);
+
+  background:
+
+    rgba(181,30,25,.07);
+
+}
+
+.result-warning strong {
+
+  display:
+
+    block;
+
+  color:
+
+    var(--red-bright);
+
+  font-size:
+
+    8px;
+
+  letter-spacing:
+
+    .14em;
+
+}
+
+.result-warning p {
+
+  margin:
+
+    7px 0 0;
+
+  color:
+
+    #77736b;
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    11px;
+
+  line-height:
+
+    1.5;
+
+}
+
+.new-check {
+
+  margin-top:
+
+    20px;
+
+  padding:
+
+    10px 0;
+
+  border:
+
+    0;
+
+  border-bottom:
+
+    1px solid var(--orange);
+
+  background:
+
+    transparent;
+
+  color:
+
+    var(--orange);
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    900;
+
+  letter-spacing:
+
+    .12em;
+
+}
+
+/* =========================================================
+
+   METHOD
+
+   ========================================================= */
+
+.method-section {
+
+  padding:
+
+    90px 48px;
+
+  background:
+
+    #050505;
+
+  border-bottom:
+
+    1px solid var(--line);
+
+}
+
+.method-heading {
+
+  display:
+
+    grid;
+
+  grid-template-columns:
+
+    45px 1fr;
+
+  gap:
+
+    25px;
+
+  margin-bottom:
+
+    45px;
+
+}
+
+.method-heading h2 {
+
+  margin:
+
+    9px 0 0;
+
+  color:
+
+    var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    clamp(2.6rem, 5vw, 5rem);
+
+  line-height:
+
+    .9;
+
+  letter-spacing:
+
+    -.06em;
+
+}
+
+.method-grid {
+
+  display:
+
+    grid;
+
+  grid-template-columns:
+
+    repeat(4, 1fr);
+
+  border-top:
+
+    1px solid var(--line);
+
+  border-bottom:
+
+    1px solid var(--line);
+
+}
+
+.method-grid article {
+
+  min-height:
+
+    230px;
+
+  padding:
+
+    25px;
+
+  border-right:
+
+    1px solid var(--line);
+
+}
+
+.method-grid article:last-child {
+
+  border-right:
+
+    0;
+
+}
+
+.method-grid article > span {
+
+  color:
+
+    var(--orange);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    12px;
+
+  font-weight:
+
+    900;
+
+}
+
+.method-grid h3 {
+
+  margin:
+
+    55px 0 8px;
+
+  color:
+
+    var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    25px;
+
+}
+
+.method-grid p {
+
+  margin:
+
+    0;
+
+  color:
+
+    #77736b;
+
+  font-size:
+
+    11px;
+
+  line-height:
+
+    1.6;
+
+}
+
+/* =========================================================
+
+   FOOTER
+
+   ========================================================= */
+
+footer {
+
+  display:
+
+    grid;
+
+  grid-template-columns:
+
+    1fr 1fr 1fr;
+
+  gap:
+
+    20px;
+
+  padding:
+
+    25px 48px 35px;
+
+  color:
+
+    #68645d;
+
+  font-size:
+
+    8px;
+
+  font-weight:
+
+    800;
+
+  letter-spacing:
+
+    .1em;
+
+  background:
+
+    #030303;
+
+  border-top:
+
+    1px solid var(--line);
+
+}
+
+.footer-brand {
+
+  color:
+
+    var(--white);
+
+  font-family:
+
+    Georgia,
+
+    serif;
+
+  font-size:
+
+    16px;
+
+}
+
+footer div:nth-child(2) {
+
+  text-align:
+
+    center;
+
+}
+
+footer div:nth-child(3) {
+
+  text-align:
+
+    right;
+
+  color:
+
+    var(--orange);
+
+}
+
+/* =========================================================
+
+   TABLET
+
+   ========================================================= */
+
+@media (max-width: 1150px) {
+
+  .front-page {
+
+    grid-template-columns:
+
+      .75fr 1.25fr;
+
+    gap:
+
+      20px;
+
+  }
+
+  .front-aside {
+
+    display:
+
+      none;
+
+  }
+
+  .front-visual {
+
+    transform:
+
+      translateX(15px);
+
+  }
+
+  .section-heading {
+
+    grid-template-columns:
+
+      40px 1fr;
+
+  }
+
+  .section-heading > p {
+
+    grid-column:
+
+      2;
+
+    padding-left:
+
+      0;
+
+    border-left:
+
+      0;
+
+    max-width:
+
+      600px;
+
+  }
+
+}
+
+/* =========================================================
+
+   MOBILE
+
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .paper-topline {
+
+    padding:
+
+      8px 16px;
+
+  }
+
+  .paper-topline span:nth-child(2) {
+
+    display:
+
+      none;
+
+  }
+
+  .masthead {
+
+    grid-template-columns:
+
+      1fr;
+
+    padding:
+
+      25px 16px;
+
+  }
+
+  .masthead-small,
+
+  .masthead-meta {
+
+    display:
+
+      none;
+
+  }
+
+  .masthead-title {
+
+    font-size:
+
+      3.7rem;
+
+  }
+
+  .tricolour-rule {
+
+    margin:
+
+      0 16px;
+
+  }
+
+  .newspaper-nav {
+
+    padding:
+
+      11px 16px;
+
+  }
+
+  .newspaper-nav div {
+
+    gap:
+
+      15px;
+
+  }
+
+  .front-page {
+
+    display:
+
+      flex;
+
+    flex-direction:
+
+      column;
+
+    min-height:
+
+      auto;
+
+    padding:
+
+      55px 18px 60px;
+
+  }
+
+  .editorial-column {
+
+    border-right:
+
+      0;
+
+    border-bottom:
+
+      1px solid var(--line);
+
+    padding:
+
+      10px 0 45px;
+
+  }
+
+  .editorial-column h1 {
+
+    font-size:
+
+      4.2rem;
+
+  }
+
+  .front-visual {
+
+    min-height:
+
+      530px;
+
+    transform:
+
+      none;
+
+  }
+
+  .map-paper {
+
+    width:
+
+      100%;
+
+    height:
+
+      530px;
+
+  }
+
+  .photo-break {
+
+    width:
+
+      215px;
+
+    height:
+
+      215px;
+
+  }
+
+  .claim-section,
+
+  .method-section {
+
+    padding:
+
+      65px 18px;
+
+  }
+
+  .desk {
+
+    grid-template-columns:
+
+      1fr;
+
+  }
+
+  .desk-input {
+
+    border-right:
+
+      0;
+
+    border-bottom:
+
+      1px solid var(--line);
+
+    padding:
+
+      23px;
+
+  }
+
+  .desk-result {
+
+    padding:
+
+      23px;
+
+  }
+
+  .method-grid {
+
+    grid-template-columns:
+
+      1fr 1fr;
+
+  }
+
+  .method-grid article {
+
+    border-bottom:
+
+      1px solid var(--line);
+
+  }
+
+  footer {
+
+    grid-template-columns:
+
+      1fr;
+
+    padding:
+
+      20px 18px 30px;
+
+  }
+
+  footer div {
+
+    text-align:
+
+      left !important;
+
+  }
+
+}
+
+/* =========================================================
+
+   SMALL PHONE
+
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .masthead-title {
+
+    font-size:
+
+      3rem;
+
+  }
+
+  .editorial-column h1 {
+
+    font-size:
+
+      3.4rem;
+
+  }
+
+  .front-visual {
+
+    min-height:
+
+      450px;
+
+  }
+
+  .map-paper {
+
+    height:
+
+      450px;
+
+  }
+
+  .photo-break {
+
+    width:
+
+      175px;
+
+    height:
+
+      175px;
+
+  }
+
+  .method-grid {
+
+    grid-template-columns:
+
+      1fr;
+
+  }
+
+  .method-grid article {
+
+    border-right:
+
+      0;
+
+  }
+
+}
+
+/* =========================================================
+
+   REDUCED MOTION
+
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    animation-duration:
+
+      .01ms !important;
+
+    animation-iteration-count:
+
+      1 !important;
+
+    transition-duration:
+
+      .01ms !important;
+
+  }
+
+}
+
+/* =========================================================
+
+   FINAL HERO POSITION
+
+   Keep the existing theme and animations.
+
+   Only the hero composition is corrected.
+
+   ========================================================= */
+
+.front-page {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1450px;
+
+    min-height: 700px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 46% 54%;
+
+    grid-template-rows: 1fr;
+
+    gap: 0;
+
+    padding: 45px 35px 55px 55px;
+
+    align-items: stretch;
+
+    overflow: hidden;
+
+}
+
+/ LEFT: headline and editorial copy /
+
+.editorial-column {
+
+    position: relative;
+
+    z-index: 50;
+
+    grid-column: 1;
+
+    grid-row: 1;
+
+    width: 100%;
+
+    max-width: 560px;
+
+    min-height: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    border-right: 0;
+
+    padding: 20px 45px 20px 0;
+
+    margin: 0;
+
+}
+
+.editorial-column h1 {
+
+    width: 100%;
+
+    max-width: 540px;
+
+    margin: 18px 0 25px;
+
+    text-align: left;
+
+    font-size: clamp(4rem, 5.6vw, 6.4rem);
+
+    line-height: .82;
+
+    letter-spacing: -.065em;
+
+}
+
+.hero-intro {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    margin: 0;
+
+    text-align: left;
+
+}
+
+.editorial-note {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    margin-top: 30px;
+
+}
+
+.primary-link {
+
+    margin-top: 28px;
+
+    align-self: flex-start;
+
+}
+
+/* =========================================================
+   SATYAPARIKSH — FINAL HERO COMPOSITION
+   Desktop: editorial text LEFT, India map + photo RIGHT
+   ========================================================= */
+
+.front-page {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(430px, 46%) minmax(0, 54%);
+    min-height: 700px;
+    gap: 0;
+    padding: 55px 35px 65px 55px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Hero text stays vertically centered on the left. */
+.editorial-column {
+    position: relative;
+    z-index: 60;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 590px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 55px 20px 0;
+    border-right: 1px solid var(--line);
+}
+
+/* The entire visual is locked into the RIGHT hero column. */
+.front-visual {
+    position: relative;
+    z-index: 10;
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 590px;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0 5px 0 20px;
+    transform: none;
+}
+
+/* Strong saffron atmosphere in the upper/right area. */
+.front-visual::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    right: -80px;
+    top: 50%;
+    left: auto;
+    transform: translateY(-52%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,122,24,.18),
+        rgba(255,122,24,.06) 38%,
+        transparent 72%
+    );
+    filter: blur(28px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Strong green atmosphere in the lower/right area. */
+.front-visual::after {
+    content: "";
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    right: -40px;
+    bottom: -90px;
+    left: auto;
+    transform: none;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(22,139,66,.20),
+        rgba(22,139,66,.05) 42%,
+        transparent 72%
+    );
+    filter: blur(35px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Map is large, centered in the RIGHT half and never drops below the hero. */
+.map-paper {
+    position: relative;
+    z-index: 10;
+    width: min(690px, 100%);
+    height: 650px;
+    max-height: 100%;
+    margin: 0 0 0 auto;
+    flex: 0 1 690px;
+    transform: none;
+}
+
+/* Real political India map. */
+.india-map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 5;
+    transform: scale(1.05);
+    transform-origin: center;
+}
+
+/* Square protest photo stays over the middle of the map. */
+.photo-break {
+    position: absolute;
+    z-index: 30;
+    width: 290px;
+    height: 290px;
+    left: 51%;
+    top: 49%;
+    transform: translate(-50%, -50%) rotate(-4deg);
+}
+
+/* Preserve the photo animation. */
+@keyframes photoFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-4deg);
+    }
+    50% {
+        transform: translate(-50%, -54%) rotate(-2deg);
+    }
+}
+
+/* Map labels stay inside the right visual. */
+.map-kicker {
+    left: 8%;
+    top: 8%;
+    z-index: 40;
+}
+
+.map-caption {
+    right: 4%;
+    bottom: 4%;
+    z-index: 40;
+    text-align: right;
+}
+
+/* Right information rail is overlaid and therefore does not push the map. */
+.front-aside {
+    position: absolute;
+    z-index: 70;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 125px;
+    border-left: 1px solid rgba(255,255,255,.10);
+    padding: 5px 0 5px 18px;
+}
+
+.front-aside .aside-block {
+    padding: 13px 0;
+}
+
+.front-aside .aside-block p {
+    font-size: 8px;
+}
+
+/* Caption remains attached to the map visual. */
+.visual-caption {
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1250px) {
+    .front-page {
+        grid-template-columns: 45% 55%;
+        min-height: 710px;
+        padding: 50px 35px 60px 60px;
+    }
+
+    .editorial-column {
+        min-height: 620px;
+        padding-right: 60px;
+    }
+
+    .front-visual {
+        min-height: 620px;
+    }
+
+    .map-paper {
+        width: min(720px, 100%);
+        height: 660px;
+    }
+
+    .photo-break {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* =========================================================
+   VERY WIDE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1500px) {
+    .front-page {
+        max-width: 1450px;
+        grid-template-columns: 46% 54%;
+        padding-left: 70px;
+        padding-right: 35px;
+    }
+
+    .editorial-column h1 {
+        font-size: 6.4rem;
+    }
+
+    .map-paper {
+        width: min(750px, 100%);
+        height: 680px;
+    }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1150px) and (min-width: 761px) {
+    .front-page {
+        grid-template-columns: 44% 56%;
+        min-height: 650px;
+        padding: 40px 25px 55px;
+    }
+
+    .editorial-column {
+        min-height: 560px;
+        padding-right: 28px;
+    }
+
+    .editorial-column h1 {
+        font-size: 4.6rem;
+    }
+
+    .front-visual {
+        min-height: 560px;
+        padding-left: 10px;
+    }
+
+    .map-paper {
+        width: min(600px, 100%);
+        height: 590px;
+    }
+
+    .photo-break {
+        width: 245px;
+        height: 245px;
+    }
+
+    .front-aside {
+        display: none;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+    .front-page {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: auto;
+        padding: 50px 20px 60px;
+        align-items: stretch;
+    }
+
+    .editorial-column {
+        width: 100%;
+        max-width: none;
+        min-height: auto;
+        padding: 10px 0 45px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .editorial-column h1 {
+        max-width: 500px;
+        font-size: 4rem;
+        text-align: left;
+    }
+
+    .front-visual {
+        width: 100%;
+        height: 520px;
+        min-height: 520px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .map-paper {
+        width: 100%;
+        max-width: 620px;
+        height: 520px;
+        margin: 0 auto;
+        flex: none;
+    }
+
+    .photo-break {
+        width: 215px;
+        height: 215px;
+        left: 50%;
+        top: 48%;
+    }
+
+    .front-aside {
+        display: none;
+    }
+}
+
+@media (max-width: 430px) {
+    .editorial-column h1 {
+        font-size: 3.45rem;
+    }
+
+    .front-visual {
+        height: 460px;
+        min-height: 460px;
+    }
+
+    .map-paper {
+        height: 460px;
+    }
+
+    .photo-break {
+        width: 190px;
+        height: 190px;
+    }
+}
+
+/* =========================================================
+   REALISTIC DARK-RED BLOOD FLOW
+   Blood should look like wet streams running from fractures,
+   not isolated red droplets.
+   ========================================================= */
+
+.ink-drop {
+    z-index: 55;
+    width: 11px;
+    height: 21px;
+    border-radius: 58% 58% 68% 68%;
+    background:
+        radial-gradient(circle at 32% 16%, rgba(255,125,112,.72), transparent 18%),
+        linear-gradient(
+            105deg,
+            #260304 0%,
+            #4a0708 25%,
+            #780d10 58%,
+            #350405 100%
+        );
+    border: 1px solid rgba(112, 9, 13, .72);
+    box-shadow:
+        0 2px 5px rgba(0,0,0,.8),
+        0 5px 13px rgba(85,4,7,.72),
+        inset -2px -2px 3px rgba(0,0,0,.55);
+    filter: saturate(1.25);
+}
+
+/* Long wet blood trails behind each moving drop. */
+.ink-drop::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 13px;
+    width: 5px;
+    height: 78px;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 70% 70%;
+    background: linear-gradient(
+        to bottom,
+        rgba(105,8,12,.92),
+        rgba(76,5,9,.78) 38%,
+        rgba(48,3,5,.52) 72%,
+        transparent
+    );
+    box-shadow:
+        2px 0 5px rgba(45,0,2,.35),
+        -2px 0 5px rgba(45,0,2,.25);
+    transform-origin: top center;
+}
+
+/* Thin irregular side-run makes the flow less artificial. */
+.ink-drop::after {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 22px;
+    width: 2px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(
+        to bottom,
+        rgba(128,10,15,.78),
+        rgba(71,4,7,.48),
+        transparent
+    );
+    transform: rotate(7deg);
+    transform-origin: top;
+}
+
+/* Larger irregular blood streams directly attached to fractures. */
+.fracture {
+    height: 4px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            #8b1115 18%,
+            #5b080b 48%,
+            #350305 78%,
+            transparent
+        );
+    box-shadow:
+        0 0 7px rgba(91,6,10,.72),
+        0 0 15px rgba(72,3,7,.42);
+}
+
+/* Blood pooling at the crack before it starts running down. */
+.ink-splatter {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #b82425 0%,
+            #720c10 32%,
+            #3b0306 72%,
+            #170102 100%
+        );
+    box-shadow:
+        13px -7px 0 #5b080b,
+        -10px -4px 0 #430407,
+        8px 11px 0 #70090d,
+        -7px 12px 0 #3c0306,
+        18px 15px 3px rgba(68,3,6,.55),
+        -15px 18px 3px rgba(55,2,5,.45);
+}
+
+/* Wet pooled blood around the crack. */
+.ink-splatter::before {
+    content: "";
+    position: absolute;
+    left: -17px;
+    top: -9px;
+    width: 42px;
+    height: 25px;
+    border-radius: 48% 55% 42% 60%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(102,7,11,.82) 0%,
+            rgba(66,4,7,.62) 45%,
+            rgba(34,2,4,0) 76%
+        );
+    filter: blur(1px);
+    transform: rotate(-12deg);
+}
+
+/* A narrow gravity-driven stream emerging below each blood source. */
+.ink-1::before,
+.ink-2::before,
+.ink-3::before,
+.ink-4::before {
+    animation: bloodStream 4.5s ease-in infinite;
+}
+
+.ink-2::before {
+    height: 105px;
+    width: 4px;
+    animation-delay: 1.1s;
+}
+
+.ink-3::before {
+    height: 68px;
+    width: 4px;
+    animation-delay: 2s;
+}
+
+.ink-4::before {
+    height: 92px;
+    width: 5px;
+    animation-delay: 3s;
+}
+
+@keyframes bloodStream {
+    0%, 12% {
+        opacity: 0;
+        transform: translateX(-50%) scaleY(.25);
+        transform-origin: top center;
+    }
+
+    20% {
+        opacity: .9;
+    }
+
+    58% {
+        opacity: .82;
+        transform: translateX(-50%) scaleY(.92);
+    }
+
+    78% {
+        opacity: .68;
+        transform: translateX(-50%) scaleY(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) scaleY(1.08);
+        transform-origin: top center;
+    }
+}
+
+/* Small glossy highlight that makes the blood look wet. */
+.ink-1,
+.ink-2,
+.ink-3,
+.ink-4 {
+    overflow: visible;
+}
+
+.ink-1 {
+    filter: drop-shadow(0 4px 5px rgba(20,0,1,.8));
+}
+
+.ink-2 {
+    filter: drop-shadow(0 5px 6px rgba(20,0,1,.8));
+}
+
+.ink-3 {
+    filter: drop-shadow(0 4px 5px rgba(20,0,1,.8));
+}
+
+.ink-4 {
+    filter: drop-shadow(0 5px 6px rgba(20,0,1,.8));
+}
+
+/* =========================================================
+   FINAL BLOOD-ONLY MAP EFFECT
+   Remove the decorative slash/fracture graphics completely.
+   Keep only dark-red blood flowing from the India map.
+   ========================================================= */
+
+/* Remove all orange/white/red diagonal fracture marks. */
+.fracture,
+.fracture::before,
+.fracture::after {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Blood sits ABOVE the map but BELOW the protest photograph. */
+.ink-drop {
+    z-index: 15 !important;
+    opacity: 1;
+    width: 10px;
+    height: 15px;
+    border: 0;
+    border-radius: 65% 45% 65% 45%;
+    background:
+        radial-gradient(
+            ellipse at 35% 20%,
+            #9b171c 0%,
+            #65090d 28%,
+            #3b0306 67%,
+            #170102 100%
+        );
+    box-shadow:
+        inset -2px -2px 3px rgba(8,0,1,.65),
+        1px 3px 8px rgba(35,0,2,.85);
+    filter: drop-shadow(0 4px 5px rgba(20,0,1,.75));
+    animation: bloodSource 5.5s ease-in-out infinite;
+}
+
+/* Main thick stream. */
+.ink-drop::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 9px;
+    width: 5px;
+    height: 125px;
+    transform: translateX(-50%);
+    transform-origin: top center;
+    border-radius: 70% 55% 60% 70%;
+    background:
+        linear-gradient(
+            90deg,
+            #210204 0%,
+            #4b0509 22%,
+            #70090e 52%,
+            #3b0306 82%,
+            transparent 100%
+        );
+    box-shadow:
+        2px 0 5px rgba(25,0,1,.65),
+        -1px 0 3px rgba(110,8,13,.3);
+    animation: bloodRun 5.5s ease-in-out infinite;
+}
+
+/* Thin secondary run, deliberately irregular. */
+.ink-drop::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 18px;
+    width: 2px;
+    height: 72px;
+    border-radius: 50%;
+    background:
+        linear-gradient(
+            to bottom,
+            #780b10,
+            #4b0509 42%,
+            rgba(35,2,4,.45) 78%,
+            transparent
+        );
+    transform: rotate(8deg);
+    transform-origin: top center;
+    animation: bloodSideRun 5.5s ease-in-out infinite;
+}
+
+/* Four blood sources are positioned around the photo, on the map itself. */
+.ink-1 {
+    left: 38% !important;
+    top: 34% !important;
+    animation-delay: .1s !important;
+}
+
+.ink-2 {
+    left: 63% !important;
+    top: 38% !important;
+    width: 9px !important;
+    height: 14px !important;
+    animation-delay: 1.3s !important;
+}
+
+.ink-3 {
+    left: 37% !important;
+    top: 58% !important;
+    width: 9px !important;
+    height: 13px !important;
+    animation-delay: 2.5s !important;
+}
+
+.ink-4 {
+    left: 64% !important;
+    top: 61% !important;
+    width: 10px !important;
+    height: 15px !important;
+    animation-delay: 3.7s !important;
+}
+
+/* Small pooled blood marks remain subtle and dark. */
+.ink-splatter {
+    z-index: 14 !important;
+    width: 5px;
+    height: 5px;
+    background: #4a0509;
+    box-shadow:
+        12px -6px 0 #5b070b,
+        -9px -4px 0 #380305,
+        8px 10px 0 #68090e,
+        -6px 11px 0 #430406;
+}
+
+.splatter-1 {
+    left: 39% !important;
+    top: 35% !important;
+}
+
+.splatter-2 {
+    left: 63% !important;
+    top: 60% !important;
+}
+
+/* Organic growth of the blood stream rather than a falling-droplet effect. */
+@keyframes bloodRun {
+    0%, 12% {
+        opacity: .15;
+        transform: translateX(-50%) scaleY(.18);
+    }
+
+    28% {
+        opacity: .95;
+        transform: translateX(-50%) scaleY(.62);
+    }
+
+    55% {
+        opacity: .9;
+        transform: translateX(-50%) scaleY(1);
+    }
+
+    76% {
+        opacity: .78;
+        transform: translateX(-50%) scaleY(.93);
+    }
+
+    100% {
+        opacity: .08;
+        transform: translateX(-50%) scaleY(.78);
+    }
+}
+
+@keyframes bloodSideRun {
+    0%, 15% {
+        opacity: .05;
+        height: 15px;
+    }
+
+    35% {
+        opacity: .8;
+        height: 55px;
+    }
+
+    62% {
+        opacity: .7;
+        height: 78px;
+    }
+
+    100% {
+        opacity: .05;
+        height: 62px;
+    }
+}
+
+@keyframes bloodSource {
+    0%, 100% {
+        transform: translateY(0) scale(.92);
+    }
+
+    50% {
+        transform: translateY(2px) scale(1);
+    }
+}
+
+/* Make sure the photograph remains completely clean. */
+.photo-break,
+.photo-break img {
+    position: relative;
+    z-index: 30 !important;
+}
+
+/* =========================================================
+   MAP BLOOD FLOW — BEHIND THE PHOTO
+   No decorative slashes. Blood originates on the India map
+   and flows downward behind the photograph.
+   ========================================================= */
+
+.fracture,
+.fracture::before,
+.fracture::after {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Blood source: small dark-red wet pool on the map. */
+.ink-drop {
+    z-index: 16 !important;
+    width: 12px !important;
+    height: 16px !important;
+    border: 0 !important;
+    border-radius: 65% 45% 70% 45%;
+    background:
+        radial-gradient(circle at 34% 20%,
+            rgba(151, 25, 31, .95) 0 10%,
+            transparent 22%),
+        linear-gradient(135deg,
+            #190103 0%,
+            #3b0306 28%,
+            #69080d 62%,
+            #300205 100%);
+    box-shadow:
+        inset -2px -2px 4px rgba(0,0,0,.75),
+        0 3px 8px rgba(25,0,2,.9);
+    filter: drop-shadow(0 3px 4px rgba(20,0,1,.85));
+    overflow: visible !important;
+    animation: bloodPulse 5.5s ease-in-out infinite;
+}
+
+/* Main viscous blood stream. */
+.ink-drop::before {
+    content: "";
+    position: absolute;
+    left: 48%;
+    top: 10px;
+    width: 6px;
+    height: 145px;
+    border-radius: 70% 48% 62% 55%;
+    background:
+        linear-gradient(90deg,
+            #1a0103 0%,
+            #420407 22%,
+            #71090e 50%,
+            #4a0509 72%,
+            #210204 100%);
+    box-shadow:
+        2px 0 5px rgba(15,0,1,.7),
+        -1px 0 4px rgba(118,10,16,.25);
+    transform-origin: top center;
+    animation: bloodFlow 5.5s ease-in-out infinite;
+}
+
+/* Thin secondary trail beside the main stream. */
+.ink-drop::after {
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 18px;
+    width: 2px;
+    height: 84px;
+    border-radius: 50%;
+    background:
+        linear-gradient(to bottom,
+            #7d0b11 0%,
+            #510509 35%,
+            #300205 70%,
+            transparent 100%);
+    transform-origin: top center;
+    transform: rotate(8deg);
+    animation: bloodSideFlow 5.5s ease-in-out infinite;
+}
+
+/* Four independent streams at different points of the map. */
+.ink-1 {
+    left: 39% !important;
+    top: 34% !important;
+    animation-delay: 0s !important;
+}
+
+.ink-2 {
+    left: 61% !important;
+    top: 37% !important;
+    width: 10px !important;
+    height: 14px !important;
+    animation-delay: 1.2s !important;
+}
+
+.ink-3 {
+    left: 38% !important;
+    top: 57% !important;
+    width: 9px !important;
+    height: 13px !important;
+    animation-delay: 2.4s !important;
+}
+
+.ink-4 {
+    left: 63% !important;
+    top: 60% !important;
+    width: 11px !important;
+    height: 15px !important;
+    animation-delay: 3.6s !important;
+}
+
+/* Small pooled blood at the origins. */
+.ink-splatter {
+    z-index: 15 !important;
+    width: 7px !important;
+    height: 6px !important;
+    border-radius: 50%;
+    background: #470408 !important;
+    box-shadow:
+        12px -5px 0 #5d070b,
+        -9px -3px 0 #360305,
+        8px 9px 0 #69090e,
+        -6px 11px 0 #420407;
+}
+
+/* Keep the photograph completely clean and ABOVE the blood. */
+.photo-break,
+.photo-break img {
+    position: relative;
+    z-index: 30 !important;
+}
+
+/* Blood grows downward from the map instead of falling as droplets. */
+@keyframes bloodFlow {
+    0%, 10% {
+        opacity: .15;
+        transform: scaleY(.08);
+        transform-origin: top center;
+    }
+
+    28% {
+        opacity: .95;
+        transform: scaleY(.55);
+        transform-origin: top center;
+    }
+
+    52% {
+        opacity: .9;
+        transform: scaleY(1);
+        transform-origin: top center;
+    }
+
+    72% {
+        opacity: .78;
+        transform: scaleY(.94);
+    }
+
+    100% {
+        opacity: .08;
+        transform: scaleY(.82);
+    }
+}
+
+@keyframes bloodSideFlow {
+    0%, 12% {
+        opacity: 0;
+        height: 10px;
+    }
+
+    32% {
+        opacity: .82;
+        height: 48px;
+    }
+
+    62% {
+        opacity: .65;
+        height: 88px;
+    }
+
+    100% {
+        opacity: .04;
+        height: 72px;
+    }
+}
+
+@keyframes bloodPulse {
+    0%, 100% {
+        transform: translateY(0) scale(.94);
+    }
+
+    50% {
+        transform: translateY(2px) scale(1);
+    }
+}

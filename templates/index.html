@@ -3,125 +3,218 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SatyaPariksh — Jantar Mantar News Verification Desk</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <title>SatyaPariksh — Truth Before Virality</title>
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<div class="page-shell">
+<div class="paper">
 
-  <div class="top-rule">
-    <span></span>
-    <span></span>
+  <!-- =========================================
+       NEWSPAPER HEADER
+       ========================================= -->
+
+  <div class="paper-topline">
+    <span>NEW DELHI</span>
+    <span>EST. 2026</span>
+    <span>INDEPENDENT VERIFICATION DESK</span>
   </div>
 
-  <header class="site-header">
+  <header class="masthead">
 
-    <a class="brand" href="#top" aria-label="SatyaPariksh home">
-      <span class="brand-mark">SP</span>
+    <div class="masthead-small">
+      <span>THE</span>
+      <span>PUBLIC</span>
+      <span>RECORD</span>
+    </div>
 
-      <span class="brand-copy">
-        <strong>Satya<span>Pariksh</span></strong>
-        <small>Jantar Mantar news verification desk</small>
-      </span>
+    <a href="#top" class="masthead-title">
+      Satya<span>Pariksh</span>
     </a>
 
-    <nav>
-      <a href="#detector">DETECTOR</a>
-      <a href="#how">HOW IT WORKS</a>
-
-      <button class="history-btn" id="historyBtn" type="button">
-        ↶&nbsp; HISTORY <b id="historyCount">0</b>
-      </button>
-    </nav>
-
-    <div class="evidence-pill">
-      <i></i> Evidence first
+    <div class="masthead-meta">
+      <strong>TRUTH</strong>
+      <span>BEFORE</span>
+      <strong>VIRALITY</strong>
     </div>
 
   </header>
 
+  <div class="tricolour-rule">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
+  <!-- =========================================
+       NAVIGATION
+       ========================================= -->
+
+  <nav class="newspaper-nav">
+
+    <div>
+      <a href="#detector">DETECTOR</a>
+      <a href="#how">METHOD</a>
+      <a href="#detector">EVIDENCE</a>
+    </div>
+
+    <button id="historyBtn" type="button">
+      ARCHIVE <b id="historyCount">0</b>
+    </button>
+
+  </nav>
+
 
   <main id="top">
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
 
-      <div class="hero-copy">
+    <!-- =========================================
+         HERO / FRONT PAGE
+         ========================================= -->
 
-        <div class="kicker">
-          01 &nbsp;&nbsp; VERIFY BEFORE YOU AMPLIFY
+    <section class="front-page">
+
+      <div class="edition-stamp">
+        <span>VOLUME 01</span>
+        <strong>TRUTH<br>EDITION</strong>
+        <small>NEW DELHI · INDIA</small>
+      </div>
+
+
+      <!-- LEFT EDITORIAL COLUMN -->
+
+      <div class="editorial-column">
+
+        <div class="eyebrow">
+          SPECIAL INVESTIGATION · 01
         </div>
 
-        <h1 id="hero-title">
-          Make the claim<br>
-          <em>earn</em> your<br>
-          trust.
+        <h1>
+          Before you<br>
+          <em>believe</em> it,<br>
+          verify it.
         </h1>
 
-        <p>
-          Check news and claims specifically against evidence associated
-          with Jantar Mantar, New Delhi.
+        <div class="headline-rule"></div>
+
+        <p class="hero-intro">
+          News travels faster than evidence. SatyaPariksh
+          examines headlines, articles and public claims
+          using a trained machine-learning classifier.
         </p>
 
-        <div class="hero-meta">
-          <span>♢ &nbsp; Source-based checks</span>
-          <span>⚑ &nbsp; Jantar Mantar scope</span>
+        <div class="editorial-note">
+
+          <span class="note-number">01</span>
+
+          <div>
+            <strong>THE QUESTION</strong>
+            <p>
+              Is this claim supported by the language patterns
+              learned by the model?
+            </p>
+          </div>
+
         </div>
+
+        <a href="#detector" class="primary-link">
+          OPEN THE VERIFICATION DESK
+          <span>→</span>
+        </a>
 
       </div>
 
 
-      <!-- INDIAN PROTEST PHOTO -->
-      <div class="field-note" aria-label="Indian protest field note">
+      <!-- CENTRAL MAP -->
 
-        <div class="photo-frame">
+      <div class="front-visual">
+
+        <div class="map-paper">
+
+          <div class="map-kicker">
+            POLITICAL MAP · INDIA
+          </div>
 
           <img
-            src="{{ url_for('static', filename='images/indian_protest.png') }}"
-            alt="Indian protest with national flags and placards"
+            class="india-map"
+            src="{{ url_for('static', filename='images/india-political-map.png') }}"
+            alt="Political map of India"
           >
 
-          <span class="orange-star">✦</span>
 
-          <div class="note-card">
+          <!-- Saffron atmospheric wash -->
 
-            <small>FIELD NOTE / 07</small>
+          <div class="colour-wash saffron-wash"></div>
 
-            <strong>
-              Context is<br>
-              <em>evidence</em> too.
-            </strong>
+          <!-- Green atmospheric wash -->
 
+          <div class="colour-wash green-wash"></div>
+
+
+          <!-- =================================
+               PHOTO BREAKING THROUGH MAP
+               ================================= -->
+
+          <div class="photo-break">
+
+            <div class="torn-edge"></div>
+
+            <img
+              src="{{ url_for('static', filename='images/indian_protest.png') }}"
+              alt="Protest scene in India"
+            >
+
+            <div class="photo-label">
+              <small>FIELD IMAGE</small>
+              <strong>CLAIM / CROWD / CONTEXT</strong>
+            </div>
+
+          </div>
+
+
+          <!-- =================================
+               FRACTURE
+               ================================= -->
+
+          <div class="fracture fracture-a"></div>
+          <div class="fracture fracture-b"></div>
+          <div class="fracture fracture-c"></div>
+          <div class="fracture fracture-d"></div>
+
+
+          <!-- =================================
+               BLOOD / RED INK
+               ================================= -->
+
+          <span class="ink-drop ink-1"></span>
+          <span class="ink-drop ink-2"></span>
+          <span class="ink-drop ink-3"></span>
+          <span class="ink-drop ink-4"></span>
+
+          <span class="ink-splatter splatter-1"></span>
+          <span class="ink-splatter splatter-2"></span>
+
+
+          <div class="map-caption">
+            <strong>INDIA</strong>
+            <span>WHERE CLAIMS MEET EVIDENCE</span>
           </div>
 
         </div>
 
-      </div>
 
-    </section>
+        <div class="visual-caption">
 
-
-    <!-- CLAIM DESK -->
-    <section
-      class="claim-section"
-      id="detector"
-      aria-labelledby="claim-title"
-    >
-
-      <div class="section-intro">
-
-        <span class="section-no">02</span>
-
-        <div>
-
-          <div class="kicker">
-            THE CLAIM DESK
-          </div>
+          <span>FIG. 01</span>
 
           <p>
-            Paste the story. We'll compare it with the detector's trained model.
+            A claim can travel across the country
+            before the evidence catches up.
           </p>
 
         </div>
@@ -129,34 +222,108 @@
       </div>
 
 
+      <!-- RIGHT SIDE INFORMATION -->
+
+      <aside class="front-aside">
+
+        <div class="aside-label">
+          DESK STATUS
+        </div>
+
+        <div class="status-live">
+          <span></span>
+          SYSTEM ONLINE
+        </div>
+
+        <div class="aside-block">
+
+          <strong>AI-ASSISTED</strong>
+
+          <p>
+            Text classification using
+            word and character TF-IDF
+            features.
+          </p>
+
+        </div>
+
+        <div class="aside-block">
+
+          <strong>MODEL</strong>
+
+          <p>
+            Calibrated Logistic Regression
+            produces REAL / FAKE probabilities.
+          </p>
+
+        </div>
+
+        <div class="aside-block">
+
+          <strong>IMPORTANT</strong>
+
+          <p>
+            A prediction is an estimate.
+            It is not independent proof.
+          </p>
+
+        </div>
+
+        <div class="vertical-mark">
+          EVIDENCE FIRST
+        </div>
+
+      </aside>
+
+    </section>
+
+
+    <!-- =========================================
+         CLAIM DESK
+         ========================================= -->
+
+    <section class="claim-section" id="detector">
+
+      <div class="section-heading">
+
+        <span class="section-number">02</span>
+
+        <div>
+          <div class="section-kicker">
+            THE VERIFICATION DESK
+          </div>
+
+          <h2>
+            Put the claim<br>
+            <em>on record.</em>
+          </h2>
+        </div>
+
+        <p>
+          Paste a headline, article or public claim.
+          The connected Python model will classify
+          the text and return calibrated probabilities.
+        </p>
+
+      </div>
+
+
       <div class="desk">
 
-        <!-- INPUT PANEL -->
+        <!-- INPUT -->
+
         <div class="desk-input">
 
-          <div class="scan-tabs" role="tablist">
+          <div class="desk-top">
 
-            <span class="ready-dot">●</span>
-
-            <span class="ready-label">
-              Ready for a claim
+            <span>
+              <i></i>
+              READY FOR REVIEW
             </span>
 
-            <button
-              class="scan-tab active"
-              data-mode="quick"
-              type="button"
-            >
-              ⌕&nbsp; Quick scan
-            </button>
-
-            <button
-              class="scan-tab"
-              data-mode="deep"
-              type="button"
-            >
-              ✣&nbsp; Deep scan
-            </button>
+            <span>
+              CASE / <b>SP-001</b>
+            </span>
 
           </div>
 
@@ -164,29 +331,34 @@
           <form id="claimForm">
 
             <label for="headline">
-              HEADLINE OR CLAIM
+              HEADLINE / CLAIM
             </label>
 
             <input
               id="headline"
               name="headline"
               autocomplete="off"
-              placeholder="What is being claimed?"
+              placeholder="Enter the claim being circulated..."
+              required
             >
 
 
             <label for="article">
-              ARTICLE TEXT <span>OPTIONAL</span>
+              ARTICLE / POST
+              <small>OPTIONAL</small>
             </label>
 
             <textarea
               id="article"
               name="article"
-              placeholder="Paste the article, post, or message here..."
+              placeholder="Paste the article, social post or message here..."
             ></textarea>
 
 
-            <label class="source-line" for="sourceUrl">
+            <label
+              class="source-input"
+              for="sourceUrl"
+            >
 
               <span>↗</span>
 
@@ -194,24 +366,25 @@
                 id="sourceUrl"
                 name="sourceUrl"
                 type="url"
-                placeholder="Add source URL (optional)"
+                placeholder="Original source URL — optional"
               >
 
             </label>
 
 
             <button
-              class="run-btn"
+              class="verify-button"
               id="runBtn"
               type="submit"
             >
-              Run the check <span>↗</span>
+              <span>RUN VERIFICATION</span>
+              <strong>→</strong>
             </button>
 
 
-            <p class="desk-note">
-              Results are based on the current model and training dataset.
-              They are not a substitute for independent editorial verification.
+            <p class="form-warning">
+              MACHINE CLASSIFICATION ONLY.
+              VERIFY CURRENT EVENTS AGAINST PRIMARY SOURCES.
             </p>
 
           </form>
@@ -219,55 +392,49 @@
         </div>
 
 
-        <!-- RESULT PANEL -->
-        <aside
-          class="desk-result"
-          aria-live="polite"
-        >
+        <!-- RESULT -->
 
-          <!-- EMPTY STATE -->
-          <div
-            id="emptyState"
-            class="empty-state"
-          >
+        <aside class="desk-result">
 
-            <div class="shield">
-              ♢
+          <div id="emptyState" class="empty-state">
+
+            <div class="empty-number">
+              02
             </div>
 
-            <div class="kicker">
-              YOUR REVIEW WILL APPEAR HERE
+            <div class="empty-kicker">
+              AWAITING CLAIM
             </div>
 
-            <h2>
-              Evidence over<br>
-              <em>assumption.</em>
-            </h2>
+            <h3>
+              Evidence<br>
+              before <em>assumption.</em>
+            </h3>
 
             <p>
-              We'll analyze the claim using the connected Python model.
-              For current events, verify the result against primary sources.
+              Your model review will appear here.
+              The final judgement should always consider
+              independent evidence and primary records.
             </p>
 
-            <div class="empty-lines">
-              <i></i>
-              <i></i>
+            <div class="waiting-lines">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
 
           </div>
 
 
-          <!-- RESULT STATE -->
           <div
             id="resultState"
             class="result-state hidden"
           >
 
-            <div class="result-kicker">
+            <div class="result-topline">
               MODEL REVIEW /
               <span id="modeLabel">QUICK SCAN</span>
             </div>
-
 
             <div
               class="result-verdict"
@@ -275,7 +442,6 @@
             >
               UNCERTAIN
             </div>
-
 
             <div class="confidence-row">
 
@@ -290,7 +456,6 @@
             </div>
 
 
-            <!-- REAL PROBABILITY -->
             <div class="probability">
 
               <div>
@@ -305,7 +470,6 @@
             </div>
 
 
-            <!-- FAKE PROBABILITY -->
             <div class="probability">
 
               <div>
@@ -320,10 +484,17 @@
             </div>
 
 
-            <p class="result-note">
-              A model prediction is an estimate from learned text patterns.
-              It does not independently prove whether an event happened.
-            </p>
+            <div class="result-warning">
+
+              <strong>EDITORIAL WARNING</strong>
+
+              <p>
+                A model prediction is an estimate from
+                learned text patterns. It does not independently
+                establish that an event occurred.
+              </p>
+
+            </div>
 
 
             <button
@@ -331,7 +502,7 @@
               id="newCheck"
               type="button"
             >
-              Start another check&nbsp; ↗
+              ← START ANOTHER CHECK
             </button>
 
           </div>
@@ -343,45 +514,50 @@
     </section>
 
 
-    <!-- HOW IT WORKS -->
+    <!-- =========================================
+         METHOD
+         ========================================= -->
+
     <section
-      class="how-section"
+      class="method-section"
       id="how"
     >
 
-      <div class="section-intro">
+      <div class="method-heading">
 
-        <span class="section-no">
+        <span class="section-number">
           03
         </span>
 
         <div>
 
-          <div class="kicker">
-            HOW THE REVIEW WORKS
+          <div class="section-kicker">
+            THE METHOD
           </div>
 
-          <p>
-            Fast classification first; evidence remains the final authority.
-          </p>
+          <h2>
+            How the desk<br>
+            reads a claim.
+          </h2>
 
         </div>
 
       </div>
 
 
-      <div class="how-grid">
+      <div class="method-grid">
 
         <article>
 
           <span>01</span>
 
           <h3>
-            Read the claim
+            Read
           </h3>
 
           <p>
-            Headline and article text are combined into one model input.
+            Headline and article text are combined
+            into a single model input.
           </p>
 
         </article>
@@ -392,11 +568,12 @@
           <span>02</span>
 
           <h3>
-            Extract patterns
+            Extract
           </h3>
 
           <p>
-            Word and character TF-IDF features represent the language patterns.
+            Word and character TF-IDF features
+            represent linguistic patterns.
           </p>
 
         </article>
@@ -407,11 +584,12 @@
           <span>03</span>
 
           <h3>
-            Score the text
+            Classify
           </h3>
 
           <p>
-            A calibrated Logistic Regression model returns REAL and FAKE probabilities.
+            Calibrated Logistic Regression returns
+            REAL and FAKE probabilities.
           </p>
 
         </article>
@@ -422,12 +600,12 @@
           <span>04</span>
 
           <h3>
-            Verify the evidence
+            Verify
           </h3>
 
           <p>
-            Official notices and primary records should be checked before
-            publishing a conclusion.
+            Official notices, primary records and
+            credible sources remain the final authority.
           </p>
 
         </article>
@@ -439,16 +617,23 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+
   <footer>
 
-    <span>
-      SatyaPariksh / Jantar Mantar verification desk
-    </span>
+    <div class="footer-brand">
+      SatyaPariksh
+    </div>
 
-    <span>
-      Model: TF-IDF + calibrated Logistic Regression
-    </span>
+    <div>
+      JANTAR MANTAR · NEW DELHI · INDIA
+    </div>
+
+    <div>
+      TF-IDF + CALIBRATED LOGISTIC REGRESSION
+    </div>
 
   </footer>
 
